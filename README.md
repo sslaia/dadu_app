@@ -1,3 +1,5 @@
+
+
 # dadu_app
 
 Belajar widget flutter melalui aplikasi dadu
@@ -6,7 +8,12 @@ Belajar widget flutter melalui aplikasi dadu
 
 ## Latihan membuat aplikasi Android dengan Flutter
 
-Proyek aplikasi Dadu ini merupakan kode dasar untuk membuat aplikasi dadu_app.
+Proyek aplikasi Dadu ini memuat kode dasar untuk membuat aplikasi dadu_app (lihat **main** branch) sampai versi final yang diselesaikan pada pertemuan 6 (lihat **pertemuan-6** branch).
+
+Jadi Anda bisa melihat perubahan kode mulai dari templat yang disediakan **Android Studio** waktu penciptaan aplikasi baru, sampai hasil akhir aplikasi berdasarkan panduan pada Pertemuan 6.
+
+Selengkapnya ikuti panduannya di [Belajar bersama Flutter: Pertemuan 6](https://github.com/sslaia/belajar_flutter/blob/main/pertemuan_6.md)
+
 
 Untuk belajar Flutter silakan mengikuti tutorial di:
 
