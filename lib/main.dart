@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Aplikasi Dadu',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Aplikasi Dadu'),
     );
   }
 }
@@ -46,17 +49,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int nomorDadu = 1;
+  String teks = "";
 
-  void _incrementCounter() {
+  void _kocokDadu() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      nomorDadu = Random().nextInt(6) + 1;
+      _pesanTeks();
     });
+  }
+
+  void _pesanTeks() {
+    if (nomorDadu == 4) {
+      teks = "Selamat, Bos.\nHari ini hari keberuntungan Anda!";
+    } else {
+      teks = "Maaf,\nhari ini Anda belum beruntung!";
+    }
   }
 
   @override
@@ -94,19 +102,40 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              teks,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 24.0,),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            SizedBox(
+              height: 50.0,
+            ),
+            GestureDetector(
+              onTap: () {
+                _kocokDadu();
+              },
+              child: Image.asset(
+                'images/dadu$nomorDadu.png',
+                width: 120.0,
+              ),
+            ),
+            SizedBox(
+              height: 50.0,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _kocokDadu();
+              },
+              child: Text(
+                'Kocok dadu!',
+              ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        onPressed: _kocokDadu,
+        tooltip: 'Kocok dadu',
+        child: Icon(Icons.play_arrow_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
